@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h1>App Component</h1>
     <FormComponent />
     <ListData />
   </div>
@@ -17,5 +16,3 @@ export default {
   },
 };
 </script>
-
-<style></style>

@@ -1,7 +1,8 @@
 <template>
   <div>
-    <h1>{{ message }}</h1>
-    <PersonalData />
+    <PersonalData name="kong" salary=10000 />
+    <PersonalData name="jojo" salary=15000 />
+    <PersonalData name="aof" salary=15000 />
   </div>
 </template>
 
@@ -12,12 +13,11 @@ export default {
   components: {
     PersonalData,
   },
-  data() {
-    return {
-      message: "แสดงรายชื่อข้อมูลพนักงานทุกคน",
-    };
-  },
 };
 </script>
 
 <style></style>
+
+<!-- note -->
+<!-- parent component -> child component use props -->
+<!-- child component -> parent component use event -->

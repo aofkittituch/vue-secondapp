@@ -1,19 +1,13 @@
 <template>
   <div>
-    <h1>
-      {{ message }}
-    </h1>
+    <h1>ชื่อ : {{ name }} เงินเดือน : {{ salary }}</h1>
   </div>
 </template>
 
 <script>
 export default {
   name: "PersonalData",
-  data() {
-    return {
-      message: "ข้อมูลพนักงานแต่ละคน",
-    };
-  },
+  props: ["name", "salary"],
 };
 </script>
 
