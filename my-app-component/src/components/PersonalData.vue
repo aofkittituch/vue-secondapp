@@ -7,7 +7,10 @@
 <script>
 export default {
   name: "PersonalData",
-  props: ["name", "salary"],
+  props: {
+    name: { type: String, required: true },
+    salary: { type: Number, required: true, default: 15000 },
+  },
 };
 </script>
 

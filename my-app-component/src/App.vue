@@ -31,11 +31,6 @@ export default {
         },
         {
           name: "bas",
-          salary: 40000,
-        },
-        {
-          name: "net",
-          salary: 10000,
         },
       ],
     };
