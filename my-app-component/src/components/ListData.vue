@@ -1,8 +1,13 @@
 <template>
   <div>
-    <PersonalData name="kong" salary=10000 />
-    <PersonalData name="jojo" salary=15000 />
-    <PersonalData name="aof" salary=15000 />
+    <ul>
+      <PersonalData
+        v-for="(item, index) in employees"
+        :key="index"
+        :name="item.name"
+        :salary="item.salary"
+      />
+    </ul>
   </div>
 </template>
 
@@ -13,6 +18,7 @@ export default {
   components: {
     PersonalData,
   },
+  props: ["employees"],
 };
 </script>
 
