@@ -1,7 +1,7 @@
 <template>
   <li>
     <h1>ชื่อ : {{ name }}</h1>
-    <button>ดูรายละเอียด</button> &nbsp;
+    <button @click="showDescription(id)">ดูรายละเอียด</button> &nbsp;
     <button>ลบข้อมูล</button>
     <div v-show="isVisible">
       <p>เงินเดือน : {{ salary }} ตำแหน่ง : {{ department }}</p>
@@ -18,6 +18,11 @@ export default {
     salary: { type: Number, required: true, default: 15000 },
     department: { type: String, required: true },
     isVisible: { type: Boolean },
+  },
+  methods: {
+    showDescription(id) {
+      this.$emit("show", id);
+    },
   },
 };
 </script>

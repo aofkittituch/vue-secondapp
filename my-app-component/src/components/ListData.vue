@@ -2,13 +2,14 @@
   <div>
     <ul>
       <PersonalData
-        v-for="(item, index) in employees"
-        :key="index"
+        v-for="item in employees"
+        :key="item.id"
         :name="item.name"
         :salary="item.salary"
         :department="item.department"
         :isVisible="item.isVisible"
         :id="item.id"
+        @show="toggleVisible"
       />
     </ul>
   </div>
@@ -53,6 +54,16 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    toggleVisible(id) {
+      this.employees = this.employees.map((item) => {
+        if (item.id === id) {
+          return { ...item, isVisible: !item.isVisible };
+        }
+        return item;
+      });
+    },
   },
 };
 </script>
