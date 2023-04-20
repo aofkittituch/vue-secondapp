@@ -1,5 +1,5 @@
 <template>
-  <li>
+  <CardEmployee>
     <h1>ชื่อ : {{ name }}</h1>
     <button @click="showDescription(id)">ดูรายละเอียด</button> &nbsp;
     <button @click="deleteEmployee(id)">ลบข้อมูล</button>
@@ -8,12 +8,16 @@
         <p>เงินเดือน : {{ salary }} ตำแหน่ง : {{ department }}</p>
       </div>
     </transition>
-  </li>
+  </CardEmployee>
 </template>
 
 <script>
+import CardEmployee from "./CardEmployee.vue";
 export default {
   name: "PersonalData",
+  components: {
+    CardEmployee,
+  },
   props: {
     id: { type: Number },
     name: { type: String, required: true },
@@ -33,15 +37,6 @@ export default {
 </script>
 
 <style scoped>
-li {
-  margin: 1rem 0;
-  font-size: 1.2rem;
-  font-weight: bold;
-  background: #8ddbac;
-  padding: 0.5rem;
-  color: #1f1f1f;
-  border-radius: 25px;
-}
 button {
   font: inherit;
   cursor: pointer;
