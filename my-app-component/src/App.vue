@@ -1,5 +1,6 @@
 <template>
   <header><h1>ระบบจัดการข้อมูลพนักงาน</h1></header>
+  <FormComponent />
   <section class="employee-content">
     <h2>ข้อมูลพนักงาน</h2>
     <ListData />
@@ -7,11 +8,13 @@
 </template>
 
 <script>
+import FormComponent from "./components/FormComponent.vue";
 import ListData from "./components/ListData.vue";
 export default {
   name: "App",
   components: {
     ListData,
+    FormComponent,
   },
 };
 </script>
@@ -43,5 +46,8 @@ header {
   border-bottom: 4px solid;
   color: purple;
   margin: 0 0 1rem 0;
+}
+h1 {
+  text-align: center;
 }
 </style>
