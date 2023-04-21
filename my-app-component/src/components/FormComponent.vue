@@ -8,6 +8,14 @@
       <label for="emp-salary">เงินเดือน</label>
       <input type="number" v-model="employee.salary" />
     </div>
+    <div class="form-control">
+      <label for="emp-department">ตำแหน่งงาน</label>
+      <select v-model="employee.department">
+        <option value="Marketing">Marketing</option>
+        <option value="Finance">Finance</option>
+        <option value="Sales">Sales</option>
+      </select>
+    </div>
     <div>
       <button>บันทึกข้อมูล</button>
     </div>
@@ -23,6 +31,7 @@ export default {
       employee: {
         name: "",
         salary: 0,
+        department: "Marketing",
       },
     };
   },
@@ -44,7 +53,8 @@ form {
 label {
   font-weight: bold;
 }
-input {
+input,
+select {
   display: block;
   width: 100%;
   font: inherit;
