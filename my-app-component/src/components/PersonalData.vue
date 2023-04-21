@@ -1,13 +1,19 @@
 <template>
   <CardEmployee>
-    <h1>ชื่อ : {{ name }}</h1>
-    <button @click="showDescription(id)">ดูรายละเอียด</button> &nbsp;
-    <button @click="deleteEmployee(id)">ลบข้อมูล</button>
-    <transition name="fade">
-      <div v-show="isVisible">
-        <p>เงินเดือน : {{ salary }} ตำแหน่ง : {{ department }}</p>
-      </div>
-    </transition>
+    <template v-slot:card-header>
+      <h1>ชื่อ : {{ name }}</h1>
+    </template>
+    <template v-slot:card-button>
+      <button @click="showDescription(id)">ดูรายละเอียด</button> &nbsp;
+      <button @click="deleteEmployee(id)">ลบข้อมูล</button>
+    </template>
+    <template v-slot:card-content>
+      <transition name="fade">
+        <div v-show="isVisible">
+          <p>เงินเดือน : {{ salary }} ตำแหน่ง : {{ department }}</p>
+        </div>
+      </transition>
+    </template>
   </CardEmployee>
 </template>
 
