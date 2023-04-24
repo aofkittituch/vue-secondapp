@@ -27,6 +27,21 @@
         <label for="gender-name">หญิง</label>
       </div>
     </div>
+    <div class="form-control">
+      <h2>ทักษะด้านภาษา</h2>
+      <div>
+        <input type="checkbox" value="ภาษาอังกฤษ" v-model="employee.skill" />
+        <label for="skill">ภาษาอังกฤษ</label>
+      </div>
+      <div>
+        <input type="checkbox" value="ภาษาไทย" v-model="employee.skill" />
+        <label for="skill">ภาษาไทย</label>
+      </div>
+      <div>
+        <input type="checkbox" value="ภาษาจีน" v-model="employee.skill" />
+        <label for="skill">ภาษาจีน</label>
+      </div>
+    </div>
     <div>
       <button>บันทึกข้อมูล</button>
     </div>
@@ -44,6 +59,7 @@ export default {
         salary: 0,
         department: "Marketing",
         gender: "",
+        skill: [],
       },
     };
   },
@@ -80,12 +96,14 @@ button {
   padding: 0.5rem 1rem;
   border-radius: 10px;
 }
-input[type="radio"] {
+input[type="radio"],
+input[type="checkbox"] {
   display: inline-block;
   width: auto;
   margin-right: 1rem;
 }
-input[type="radio"] + label {
+input[type="radio"] + label,
+input[type="checkbox"] {
   font-weight: normal;
 }
 h2 {
