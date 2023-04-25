@@ -1,9 +1,10 @@
 <template>
   <header><h1>ระบบจัดการข้อมูลพนักงาน</h1></header>
-  <FormComponent />
-  <section class="employee-content">
+  <FormComponent @save="insertEmployee" />
+  <section class="employee-content" v-if="employee.length > 0">
     <h2>ข้อมูลพนักงาน</h2>
-    <ListData />
+    <!-- :prop="data" -->
+    <ListData :employee="employee" />
   </section>
 </template>
 
@@ -15,6 +16,16 @@ export default {
   components: {
     ListData,
     FormComponent,
+  },
+  data() {
+    return {
+      employee: [],
+    };
+  },
+  methods: {
+    insertEmployee(data) {
+      this.employee.push(data);
+    },
   },
 };
 </script>

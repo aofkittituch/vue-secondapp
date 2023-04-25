@@ -1,5 +1,5 @@
 <template>
-  <form>
+  <form @submit.prevent="submitForm">
     <div class="form-control">
       <label for="emp-name">ชื่อพนักงาน</label>
       <input type="text" v-model.trim="employee.name" />
@@ -19,33 +19,57 @@
     <div class="form-control">
       <h2>เพศ</h2>
       <div>
-        <input type="radio" value="ชาย" v-model="employee.gender" />
-        <label for="gender-name">ชาย</label>
+        <input
+          type="radio"
+          value="ชาย"
+          v-model="employee.gender"
+          id="gender-name-men"
+        />
+        <label for="gender-name-men">ชาย</label>
       </div>
       <div>
-        <input type="radio" value="หญิง" v-model="employee.gender" />
-        <label for="gender-name">หญิง</label>
+        <input
+          type="radio"
+          value="หญิง"
+          v-model="employee.gender"
+          id="gender-name-women"
+        />
+        <label for="gender-name-women">หญิง</label>
       </div>
     </div>
     <div class="form-control">
       <h2>ทักษะด้านภาษา</h2>
       <div>
-        <input type="checkbox" value="ภาษาอังกฤษ" v-model="employee.skill" />
-        <label for="skill">ภาษาอังกฤษ</label>
+        <input
+          type="checkbox"
+          value="ภาษาอังกฤษ"
+          v-model="employee.skill"
+          id="skill-eng"
+        />
+        <label for="skill-eng">ภาษาอังกฤษ</label>
       </div>
       <div>
-        <input type="checkbox" value="ภาษาไทย" v-model="employee.skill" />
-        <label for="skill">ภาษาไทย</label>
+        <input
+          type="checkbox"
+          value="ภาษาไทย"
+          v-model="employee.skill"
+          id="skill-thai"
+        />
+        <label for="skill-thai">ภาษาไทย</label>
       </div>
       <div>
-        <input type="checkbox" value="ภาษาจีน" v-model="employee.skill" />
-        <label for="skill">ภาษาจีน</label>
+        <input
+          type="checkbox"
+          value="ภาษาจีน"
+          v-model="employee.skill"
+          id="skill-chinese"
+        />
+        <label for="skill-chinese">ภาษาจีน</label>
       </div>
     </div>
     <div>
       <button>บันทึกข้อมูล</button>
     </div>
-    {{ JSON.stringify(employee) }}
   </form>
 </template>
 
@@ -62,6 +86,26 @@ export default {
         skill: [],
       },
     };
+  },
+  methods: {
+    submitForm() {
+      const newEmployee = {
+        name: this.employee.name,
+        salary: this.employee.salary,
+        department: this.employee.department,
+        gender: this.employee.gender,
+        skill: this.employee.skill,
+      };
+      this.$emit("save", newEmployee);
+      this.resetForm();
+    },
+    resetForm() {
+      this.employee.name = "";
+      this.employee.salary = 0;
+      this.employee.department = "Marketing";
+      this.employee.gender = "";
+      this.employee.skill = [];
+    },
   },
 };
 </script>
